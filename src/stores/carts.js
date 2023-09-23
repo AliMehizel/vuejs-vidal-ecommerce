@@ -33,15 +33,25 @@ export const useCarts = defineStore('carts', {
     actions: {
         async GetCarts() {
             this.loading = true
-            const res = await fetch('http://127.0.0.1:8000/carts/')
-            const data = await res.json()
-            this.carts = data
-            this.loading = false
+            try{
+                const res = await fetch('https://vidaldz.com/carts/')
+            if(res.ok){
+                const data = await res.json()
+                this.carts = data
+                console.log(data)
+                this.loading = false
+            }
+            else {
+                throw new Error('Network response was not ok.');
+            }
+            }catch(error){
+                console.error('Error during POST request:', error.message)
+            }
         },
         async addToCart(data) {
             const { name, color, size } = data
             try {
-                const res = await fetch('http://127.0.0.1:8000/add-to-cart/', {
+                const res = await fetch('https://vidaldz.com/add-to-cart/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -69,7 +79,7 @@ export const useCarts = defineStore('carts', {
         async updateCart(data) {
             const { action, name, id } = data
             try {
-                const res = await fetch('http://127.0.0.1:8000/update-qte/', {
+                const res = await fetch('https://vidaldz.com/update-qte/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -97,7 +107,7 @@ export const useCarts = defineStore('carts', {
         async deletFromCart(data) {
             const { id } = data
             try {
-                const res = await fetch(`http://127.0.0.1:8000/delete/${id}`, {
+                const res = await fetch(`https://vidaldz.com/delete/${id}`, {
                     method: 'DELETE'
                 });
                 if (res.ok) {

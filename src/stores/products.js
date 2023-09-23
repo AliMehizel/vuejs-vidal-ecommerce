@@ -24,7 +24,7 @@ export const useProducts = defineStore('products',{
         },
         async GetProduct(id){
             this.loading = true 
-            const res = await fetch("http://127.0.0.1:8000/products/" + id);
+            const res = await fetch("https://vidaldz.com/products/" + id);
             const data = await res.json();
             this.product = data 
             this.loading = false 
@@ -32,7 +32,7 @@ export const useProducts = defineStore('products',{
         },
         async GetProducts(){
             this.loading = true 
-            const res = await fetch('http://127.0.0.1:8000/products/',);
+            const res = await fetch('https://vidaldz.com/products/',);
             const data = await res.json();
             this.products = data 
             this.loading = false 
@@ -40,7 +40,7 @@ export const useProducts = defineStore('products',{
         },
         async GetByCategory(category){
             this.loading = true 
-            const res = await fetch("http://127.0.0.1:8000/products/" + category);
+            const res = await fetch("https://vidaldz.com/products/" + category);
             const data = await res.json();
             this.products = data 
             this.loading = false 
