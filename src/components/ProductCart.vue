@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="cart-img">
-        <img :src="'http://127.0.0.1:8000/'+ product.image" :alt="product.name">
+        <img :src="'https://vidaldz.com/'+ product.image" :alt="product.name">
     </div>
     <div class="cart-content">
         <h3><router-link :to="{name: 'ProductDetails', params : {id: product.id}}">{{product.name}}</router-link></h3>
