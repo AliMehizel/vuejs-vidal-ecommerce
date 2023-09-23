@@ -1,6 +1,6 @@
 import './assets/main.css'
 
-import { createSSRApp } from 'vue'
+import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
