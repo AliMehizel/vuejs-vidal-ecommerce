@@ -5,7 +5,7 @@
   <div class="product-details-container">
     <div class="product-details">
       <div class="details-img">
-        <img :src="'http://127.0.0.1:8000'+product.product.image" :alt="product.product.name" />
+        <img :src="'https://vidaldz.com'+product.product.image" :alt="product.product.name" />
       </div>
       <div class="details-content">
         <h1>{{product.product.name}}</h1>

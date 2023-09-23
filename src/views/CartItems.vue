@@ -26,7 +26,7 @@
         <div class="cart-div" v-for="cart in cartList.carts" :key="cart.id">
           <div class="cart-div-img">
             <img
-              :src="'http://127.0.0.1:8000/' + cart.product.image"
+              :src="'https://vidaldz.com/' + cart.product.image"
               :alt="cart.product.name"
             />
           </div>
@@ -147,8 +147,11 @@ import useStripe from "../app/useStripe";
 export default {
   components: { Footer },
   setup() {
-    const cartList = useCarts();
-    cartList.GetCarts();
+    let cartList = useCarts();
+    onMounted(async()=>{
+      
+      await cartList.GetCarts();
+    })
     //update cart quantity
     const updateCart = async(action, name, id) => {
       await cartList.updateCart({
